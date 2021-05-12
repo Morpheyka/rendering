@@ -59,6 +59,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Procedural Grid\Grid.cs" />
+     <Compile Include="Assets\Scripts\Rendering1\PositionTransformation.cs" />
+     <Compile Include="Assets\Scripts\Rendering1\RotationTransformation.cs" />
+     <Compile Include="Assets\Scripts\Rendering1\ScaleTransformation.cs" />
+     <Compile Include="Assets\Scripts\Rendering1\Transformation.cs" />
+     <Compile Include="Assets\Scripts\Rendering1\TransformationGrid.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Volumes/Transcend/self/rendering/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

@@ -13,14 +13,12 @@ namespace Rendering0
         private MeshFilter _filter = null;
         private MeshRenderer _renderer = null;
 
-        private WaitForSeconds _delay = null;
         private const int CHUNK_SIZE = 65535;
 
         private void Awake()
         {
             _filter = GetComponent<MeshFilter>();
             _renderer = GetComponent<MeshRenderer>();
-            _delay = new WaitForSeconds(0.05f);
         }
 
         private void Start()
@@ -37,11 +35,10 @@ namespace Rendering0
             var topLeftZ = (height - 1) * 0.5f;
 
             var terrain = new MeshData(width, height);
-            var vertexIndex = 0;
 
-            for (int y = 0; y <= height; y++)
+            for (int y = 0, vertexIndex = 0; y <= height; y++)
             {
-                for (var x = 0; x <= width; x++)
+                for (var x = 0; x <= width; vertexIndex++, x++)
                 {
                     terrain.vertices[vertexIndex] = new Vector3(topLeftX + x, topLeftZ - y);
                     terrain.uvs[vertexIndex] = new Vector2(x / (float) width, y / (float) height);
@@ -51,8 +48,6 @@ namespace Rendering0
                         terrain.AddTriangle(vertexIndex, vertexIndex + width + 1, vertexIndex + 1);
                         terrain.AddTriangle(vertexIndex + 1, vertexIndex + width + 1, vertexIndex + width + 2);
                     }
-
-                    vertexIndex++;
                 }
             }
 
